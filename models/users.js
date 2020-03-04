@@ -28,6 +28,15 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 len: [1,500] //at least 1 length, but up to 500
             }
-        },
-    })
+        }, 
+    }, {
+        timestamps: false
+    });
+    Users.associate = function(models) {
+        Users.hasMany(models.Charity, {
+            onDelete: 'cascade'
+        });
+    };
+
+    return Users;
 };

@@ -22,5 +22,16 @@ module.exports = function(sequelize, DataTypes) {
                 max: 1000000.00
             }
         }
+    }, {
+        timestamps: false
     })
+    Charity.associate = function(models) {
+        Charity.belongsTo(models.Users, {
+            foreignKey: {
+                allowNull: true
+            }
+        });
+    };
+
+    return Charity;
 };

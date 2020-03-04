@@ -25,9 +25,7 @@ CREATE TABLE charity_posts(
 CREATE TABLE transactions(
     id int NOT NULL AUTO_INCREMENT,
     amount decimal NOT NULL,
-    donor_id int NOT NULL,
-    charity varchar(100) NOT NULL,
+    charity_id int NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (donor_id) REFERENCES users(id),
-    FOREIGN KEY (charity) REFERENCES charity_posts(title)
-);
+    FOREIGN KEY (charity_id) REFERENCES charity_posts(id)

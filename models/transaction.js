@@ -7,8 +7,10 @@ module.exports = function(sequelize, DataTypes) {
                 min: 1.00
             }
         }
+    },
+    {
+        timestamps: false
     });
-
     Transaction.associate = function(models) {
         Transaction.belongsTo(models.Charity, {
             foreignKey: {

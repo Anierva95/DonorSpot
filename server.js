@@ -18,12 +18,8 @@ require("./routes/charity-routes")(app);
 require("./routes/transaction-routes")(app);
 
 
-<<<<<<< HEAD
-db.sequelize.sync({ force: true }).then(function() {
-=======
-db.sequelize.sync({ force: false }).then(function() {
 
->>>>>>> 927e18af4640e3ca639a63f05d1144134127f27e
+db.sequelize.sync({ force: true }).then(function() {
     app.listen(PORT, function() {
       console.log("App listening on PORT " + PORT);
     });

@@ -31,6 +31,11 @@ module.exports = function(sequelize, DataTypes) {
                 allowNull: true
             }
         });
+        Charity.hasMany(models.Transaction, {
+            foreignKey: {
+                allowNull: true
+            }
+        })
     };
 
     return Charity;

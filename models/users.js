@@ -36,6 +36,11 @@ module.exports = function(sequelize, DataTypes) {
         Users.hasMany(models.Charity, {
             onDelete: 'cascade'
         });
+        Users.hasMany(models.Transaction, {
+            foreignKey: {
+                allowNull: false
+            }
+        })
     };
 
     return Users;

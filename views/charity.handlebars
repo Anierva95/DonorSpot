@@ -1,6 +1,6 @@
 <div class="column is-one-third">
     {{!-- Name of table gets inserted here --}}
-    {{#each charity_posts}}
+    {{#each charities}}
     <div class="card large">
         <div class="card-image">
             <figure class="image">
@@ -16,7 +16,7 @@
                     <p class="title is-4 no-padding">{{ title }}</p>
                     <p>
                         {{!-- Link to rendered charity page --}}
-                        <span class="title is-6"><a href= {{ charity_url }} ></a></span> {{!--"http://twitter.com/#">@zhaocrack</a></span> --}}
+                        <span class="title is-6"><a href= {{ goal }} ></a></span> {{!--"http://twitter.com/#">@zhaocrack</a></span> --}}
                     </p>
                     {{!-- Category the charity belongs under --}}
                     <p class="subtitle is-6">{{ category }}</p>
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="content">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae quam quidem nobis, amet nulla officiis natus cumque, obcaecati iure commodi placeat aspernatur, ut eligendi architecto illum iste perspiciatis. Ut, facilis.
+                {{ descript }}
                 <div class="background-icon">
                     <span class="icon-twitter"></span>
                 </div>

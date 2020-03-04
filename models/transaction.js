@@ -11,7 +11,6 @@ module.exports = function(sequelize, DataTypes) {
     {
         timestamps: false
     });
-
     Transaction.associate = function(models) {
         Transaction.belongsTo(models.Charity, {
             foreignKey: {

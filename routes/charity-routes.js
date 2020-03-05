@@ -13,12 +13,14 @@ module.exports = function (app) {
     app.get("/", function (req, res) {
         db.Charity.findAll({
         }).then(function (dbCharity) {
-            // console.log(dbCharity);
+            console.log(dbCharity);
             let newCharity = []
             dbCharity.forEach(element => {
                 let newData = element.dataValues
                 newCharity.push(newData)
             });
+            let randomNum = Math.floor(Math.random() * Math.floor(newCharity.length) + 1);
+
             var newObject = {
                 charities: newCharity
             };
@@ -26,14 +28,14 @@ module.exports = function (app) {
             res.render("charity", newObject)
         })
     });
-    app.get("/", function(req, res) {
-        db.Charity.findAll({
-             include: [db.Users]
-        }).then(function(dbCharity) {
-            console.log(dbCharity);
-            let newCharity = 
-            // res.json(dbCharity);
-            res.render("charity", dbCharity)
-        })
-    })
+    // app.get("/", function(req, res) {
+    //     db.Charity.findAll({
+    //          include: [db.Users]
+    //     }).then(function(dbCharity) {
+    //         console.log(dbCharity);
+    //         let newCharity = 
+    //         // res.json(dbCharity);
+    //         res.render("charity", dbCharity)
+    //     })
+    // })
 };

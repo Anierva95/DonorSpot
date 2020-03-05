@@ -4,22 +4,25 @@ $(document).ready(function () {
     var email = $("#email");
     var firstName = $("#firstname");
     var lastName = $("#lastname");
-    var submit = $("#submitBtn");
     var signup = $("#signup");
 
     $(signup).on("submit", handleFormSubmit)
     function handleFormSubmit() {
-        event.preventDefault();
         var newUsername = {
             username: userName.val().trim(), 
-            passwd: userPass.val().trim(),        
+            passwd: userPass.val().trim(), 
+            email: email.val().trim(),       
             first_name: firstName.val().trim(),
             last_name: lastName.val().trim()
         }
         console.log(newUsername);
 
-        $.post("/api/charity", newCharity).then(function(result) {
+        $.post("/api/users", newUsername).then(function(result) {
             console.log(result);
         })
     }
+    const home = $(".Home");
+    home.on("click", function() {
+    window.location.replace("/");
+    })
 });

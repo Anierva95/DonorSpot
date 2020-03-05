@@ -1,6 +1,6 @@
 $(document).ready(function () {
     var userName = $("#username");
-    var userPass = $("#currency");
+    var userPass = $("#password");
     var email = $("#email");
     var firstName = $("#firstname");
     var lastName = $("#lastname");
@@ -8,8 +8,8 @@ $(document).ready(function () {
     var signup = $("#signup");
 
     $(signup).on("submit", handleFormSubmit)
-
     function handleFormSubmit() {
+        event.preventDefault();
         var newUsername = {
             username: userName.val().trim(), 
             passwd: userPass.val().trim(),        

@@ -14,7 +14,7 @@ $(document).ready(function () {
             title: charityName.val().trim(), // returns Henry's Fund
             goal: goal.val().trim(),         // returns 100000
             descript: descript.val().trim(),
-            UserId: 3,  // returns To assist my...
+            UserId: 1,  // returns To assist my...
         }
         console.log(newCharity);
         console.log(currency.val()); // returns $ 
@@ -24,4 +24,7 @@ $(document).ready(function () {
             console.log(result);
         })
     }
-});
+    const home = $(".Home");
+    home.on("click", function() {
+    window.location.replace("/");
+    })});

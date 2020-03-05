@@ -15,6 +15,13 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1,500] //at least 1 length, but up to 500
             }
         },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1,500] //at least 1 length, but up to 500
+            }
+        },
         first_name: {
             type: DataTypes.STRING,
             allowNull: false,

@@ -11,49 +11,54 @@
                 </h2>
             </div>
             <div class="column right-image">
-                <img src="https://s32152.pcdn.co/wp-content/uploads/2018/11/UN0157364.jpg" alt="unicef image"/>
+                <img src="https://s32152.pcdn.co/wp-content/uploads/2018/11/UN0157364.jpg" alt="unicef image" />
             </div>
         </div>
     </div>
 </section>
-<div class="columns has-background-light">
-    {{#each charities}}
-    <div class="column is-one-third">
-        {{!-- Name of table gets inserted here --}}
+<div class="section has-background-grey-light">
+    <table class="table is-fullwidth is-scrollable">
+        <div class="container">
+            <div class="columns">
+                {{#each charities}}
+                <div class="column is-one-third">
+                    {{!-- Name of table gets inserted here --}}
 
-        <div class="card large has-background-grey-lighter">
-            <div class="card-image">
-                <figure class="image">
-                    {{!-- Name of table column holding image_url --}}
-                    <img src={{ image_url }}
-                        "https://images.unsplash.com/photo-1475778057357-d35f37fa89dd?dpr=1&auto=compress,format&fit=crop&w=1920&h=&q=80&cs=tinysrgb&crop="
-                        alt="Image" />
-                </figure>
-            </div>
-            <div class="card-content">
-                <div class="media">
-                    <div class="media-content">
-                        {{!-- Name of charity inserted here --}}
-                        <p class="title is-4 no-padding">{{ title }}</p>
-                        <p>
-                            {{!-- Link to rendered charity page --}}
-                            <span class="title is-6"><a href={{ contact }}>Email/Contact</a></span>
-                            {{!--"http://twitter.com/#">@zhaocrack</a></span> --}}
-                        </p>
-                        {{!-- Category the charity belongs under --}}
-                        <p class="subtitle is-6">{{ category }}Category or Possibly goal here?</p>
-                        {{!-- <img src= /> --}}
+                    <div class="card large has-background-grey-lighter">
+                        <div class="card-image">
+                            <figure class="image">
+                                {{!-- Name of table column holding image_url --}}
+                                <img src={{ image_url }} "https://images.unsplash.com/photo-1475778057357-d35f37fa89dd?dpr=1&auto=compress,format&fit=crop&w=1920&h=&q=80&cs=tinysrgb&crop="
+                                    alt="Image" />
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    {{!-- Name of charity inserted here --}}
+                                    <p class="title is-4 no-padding">{{ title }}</p>
+                                    <p>
+                                        {{!-- Link to rendered charity page --}}
+                                        <span class="title is-6"><a href={{ contact }}>Email/Contact</a></span>
+                                        {{!--"http://twitter.com/#">@zhaocrack</a></span> --}}
+                                    </p>
+                                    {{!-- Category the charity belongs under --}}
+                                    <p class="subtitle is-6">{{ category }}Category or Possibly goal here?</p>
+                                    {{!-- <img src= /> --}}
+                                </div>
+                            </div>
+                            <div class="content">
+                                {{ descript }}
+                                <div class="background-icon">
+                                    <span class="icon-twitter"></span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
-                <div class="content">
-                    {{ descript }}
-                    <div class="background-icon">
-                        <span class="icon-twitter"></span>
-                    </div>
-                </div>
+                {{/each}}
             </div>
         </div>
-
-    </div>
-    {{/each}}
+    </table>
 </div>

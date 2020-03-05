@@ -3,5 +3,10 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-};
+}
 
+.table {
+  overflow-x: scroll;
+  width: auto;
+  position: absolute;
+}

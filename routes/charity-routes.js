@@ -19,8 +19,8 @@ module.exports = function (app) {
                 let newData = element.dataValues
                 newCharity.push(newData)
             });
-            let randomCharity = []
-            
+            let randomNum = Math.floor(Math.random() * Math.floor(newCharity.length) + 1);
+
             var newObject = {
                 charities: newCharity
             };

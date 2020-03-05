@@ -19,6 +19,7 @@ require("./routes/user-routes")(app);
 require("./routes/charity-routes")(app);
 require("./routes/transaction-routes")(app);
 require("./routes/html-routes")(app);
+require("./routes/login-routes")(app);
 
 
 

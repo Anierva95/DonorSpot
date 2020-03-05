@@ -7,4 +7,8 @@ $(document).ready(function () {
     signUp.on("click", function() {
         window.location.replace("/signup");
     })
+    const logIn = $(".login");
+    logIn.on("click", function() {
+    window.location.replace("/login");
+    })
 });

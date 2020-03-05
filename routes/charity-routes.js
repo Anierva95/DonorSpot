@@ -28,14 +28,10 @@ module.exports = function (app) {
             res.render("charity", newObject)
         })
     });
-    // app.get("/", function(req, res) {
-    //     db.Charity.findAll({
-    //          include: [db.Users]
-    //     }).then(function(dbCharity) {
-    //         console.log(dbCharity);
-    //         let newCharity = 
-    //         // res.json(dbCharity);
-    //         res.render("charity", dbCharity)
-    //     })
-    // })
+   app.post("/api/charity", function(req, res) {
+       const newCharity = req.body;
+       db.Charity.create(newCharity).then(function(dbCharity) { 
+            res.json(dbCharity);
+       });
+   })
 };

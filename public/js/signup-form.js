@@ -18,8 +18,8 @@ $(document).ready(function () {
         }
         console.log(newUsername);
 
-        // $.post("/api/charity", newCharity).then(function(result) {
-        //     console.log(result);
-        // })
+        $.post("/api/charity", newCharity).then(function(result) {
+            console.log(result);
+        })
     }
 });

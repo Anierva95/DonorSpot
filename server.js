@@ -10,6 +10,7 @@ var exphbs = require("express-handlebars");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Starting point for express directory
 app.use(express.static("public"));
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
@@ -17,11 +18,12 @@ app.set("view engine", "handlebars");
 require("./routes/user-routes")(app);
 require("./routes/charity-routes")(app);
 require("./routes/transaction-routes")(app);
+require("./routes/html-routes")(app);
 
 
 
 
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({ force: false }).then(function() {
     app.listen(PORT, function() {
       console.log("App listening on PORT " + PORT);
     });

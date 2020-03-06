@@ -3,8 +3,8 @@ const db = require("../models");
 module.exports = function (app) {
     app.get("/api/charity", function (req, res) {
         db.Charity.findAll({
-             include: [db.Users, db.Transaction]
-        }).then(function(dbCharity) {
+            include: [db.Users, db.Transaction]
+        }).then(function (dbCharity) {
             res.json(dbCharity);
         })
     });
@@ -23,33 +23,34 @@ module.exports = function (app) {
             res.render("charity", newObject)
         })
     });
-   app.post("/api/charity", function(req, res) {
-       const newCharity = req.body;
-       db.Charity.create(newCharity).then(function(dbCharity) { 
+    app.post("/api/charity", function (req, res) {
+        const newCharity = req.body;
+        db.Charity.create(newCharity).then(function (dbCharity) {
             res.json(dbCharity);
-       });
-   });
-
-   app.get("/api/userCharity", function(req, res) {
-    db.Charity.findAll({
-        include: [db.Users, db.Transaction]
-    }).then(function(dbUserCharity) {
-        res.json(dbUserCharity);
-
-   app.get("/charity/:id", function (req, res) {
-    db.Charity.findOne({
-        where: {
-            id: req.params.id
-        }
-    }).then(function (dbCharity) {
-        // res.json(dbCharity);
-        let newCharity = [];
-        newCharity.push(dbCharity.dataValues)
-        let newObject = {
-            charities: newCharity
-        };
-        console.log(newObject)
-        res.render("charitypage", newObject);
+        });
     });
-});
-})})};
+
+    app.get("/api/userCharity", function (req, res) {
+        db.Charity.findAll({
+            include: [db.Users, db.Transaction]
+        }).then(function (dbUserCharity) {
+            res.json(dbUserCharity);
+        });
+    });
+    app.get("/charity/:id", function (req, res) {
+        db.Charity.findOne({
+            where: {
+                id: req.params.id
+            }
+        }).then(function (dbCharity) {
+            // res.json(dbCharity);
+            let newCharity = [];
+            newCharity.push(dbCharity.dataValues)
+            let newObject = {
+                charities: newCharity
+            };
+            console.log(newObject)
+            res.render("charitypage", newObject);
+        });
+    });
+};

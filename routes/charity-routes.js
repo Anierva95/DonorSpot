@@ -5,9 +5,7 @@ module.exports = function (app) {
         db.Charity.findAll({
              include: [db.Users, db.Transaction]
         }).then(function(dbCharity) {
-
             res.json(dbCharity);
-            // res.render("charity", dbCharity)
         })
     });
     app.get("/", function (req, res) {
@@ -19,12 +17,9 @@ module.exports = function (app) {
                 let newData = element.dataValues
                 newCharity.push(newData)
             });
-            let randomNum = Math.floor(Math.random() * Math.floor(newCharity.length) + 1);
-
             var newObject = {
                 charities: newCharity
             };
-            // console.log(newCharity);
             res.render("charity", newObject)
         })
     });
@@ -34,11 +29,27 @@ module.exports = function (app) {
             res.json(dbCharity);
        });
    });
+
    app.get("/api/userCharity", function(req, res) {
     db.Charity.findAll({
         include: [db.Users, db.Transaction]
     }).then(function(dbUserCharity) {
         res.json(dbUserCharity);
+
+   app.get("/charity/:id", function (req, res) {
+    db.Charity.findOne({
+        where: {
+            id: req.params.id
+        }
+    }).then(function (dbCharity) {
+        // res.json(dbCharity);
+        let newCharity = [];
+        newCharity.push(dbCharity.dataValues)
+        let newObject = {
+            charities: newCharity
+        };
+        console.log(newObject)
+        res.render("charitypage", newObject);
     });
 });
 };

@@ -8,4 +8,10 @@ module.exports = function(app) {
             res.json(dbUsers);
         });
     });
+    app.post("/api/users", function(req, res) {
+        const newUser = req.body;
+        db.Users.create(newUser).then(function(dbUsers){
+            res.json(dbUsers);
+        })
+    });
 }

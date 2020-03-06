@@ -33,5 +33,12 @@ module.exports = function (app) {
        db.Charity.create(newCharity).then(function(dbCharity) { 
             res.json(dbCharity);
        });
-   })
+   });
+   app.get("/api/userCharity", function(req, res) {
+    db.Charity.findAll({
+        include: [db.Users, db.Transaction]
+    }).then(function(dbUserCharity) {
+        res.json(dbUserCharity);
+    });
+});
 };

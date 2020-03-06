@@ -29,6 +29,13 @@ module.exports = function (app) {
             res.json(dbCharity);
        });
    });
+
+   app.get("/api/userCharity", function(req, res) {
+    db.Charity.findAll({
+        include: [db.Users, db.Transaction]
+    }).then(function(dbUserCharity) {
+        res.json(dbUserCharity);
+
    app.get("/charity/:id", function (req, res) {
     db.Charity.findOne({
         where: {

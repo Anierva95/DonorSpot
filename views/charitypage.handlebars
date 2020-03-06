@@ -1,0 +1,74 @@
+{{#each charities}}
+<section class="section">
+    <div class="columns">
+        <div class="column is-9">
+            <div class="has-text-centered is-size-4">{{ title }}</div>
+            <p class="has-text-centered is-size-5">
+                Started by {{ first_name }} {{last_name}}
+            </p>
+            <!-- start image columns -->
+            <div class="columns has-same-height is-gapless">
+                <div class="column"></div>
+                <div class="column">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="https://source.unsplash.com/collection/1110/1280x960"
+                                    //https://source.unsplash.com/random/1280x960 alt="Placeholder image" />
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+                <div class="column"></div>
+            </div>
+            <!-- end image columns -->
+            <p class="has-text-centered">
+                {{ descript }}
+            </p>
+            <br />
+            <p class="has-text-centered is-size-5">
+                {{ goal }}
+            </p>
+            <progress class="progress is-info" value="40" max="100">40%</progress>
+        </div>
+        <div class="column is-3">
+            <div class="has-text-centered is-size-4">Donation List</div>
+            <aside class="menu">
+                <ul class="menu-list">
+                    <nav class="level is-size-5">
+                        <div class="level-left">
+                            <li>
+                                <p>Henry Ni</p>
+                            </li>
+                        </div>
+                        <div class="level-right">
+                            <li>
+                                <p>$100.00</p>
+                            </li>
+                        </div>
+                    </nav>
+                    <nav class="level is-size-5">
+                        <div class="level-left">
+                            <li>
+                                <p>Henry Ni</p>
+                            </li>
+                        </div>
+                        <div class="level-right">
+                            <li>
+                                <p>$1000.00</p>
+                            </li>
+                        </div>
+                    </nav>
+
+                    <li>
+                        <p>Max</p>
+                    </li>
+                    <li>
+                        <p>Anthony</p>
+                    </li>
+                </ul>
+            </aside>
+        </div>
+    </div>
+</section>
+{{/each}}

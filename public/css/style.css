@@ -5,8 +5,18 @@
   background-size: cover;
 }
 
-.table {
+.charities {
   overflow-x: scroll;
   width: auto;
   position: absolute;
+}
+.cardsss:hover{
+  -ms-transform: scale(1.1); 
+  -webkit-transform: scale(1.1); 
+  transform: scale(1.1); 
+  cursor: pointer;
+}
+.cardsss{
+  position: fixed;
+  transition:transform 0.5s;
 }

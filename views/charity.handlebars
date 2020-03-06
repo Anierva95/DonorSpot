@@ -33,15 +33,15 @@
         </div>
     </div>
 </section>
-<div class="section has-background-grey-light">
-    <table class="table is-fullwidth is-scrollable">
+<div class="section">
+    <table class="table is-fullwidth">
         <div class="container">
-            <div class="columns">
+            <div class="columns charities is-scrollable">
                 {{#each charities}}
                 <div class="column is-one-third">
                     {{!-- Name of table gets inserted here --}}
 
-                    <div class="card large has-background-grey-lighter">
+                    <div class="card large has-background-grey-lighter cardsss">
                         <div class="card-image">
                             <figure class="image">
                                 {{!-- Name of table column holding image_url --}}
@@ -78,4 +78,16 @@
             </div>
         </div>
     </table>
+    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+        <a class="pagination-previous" id="previous">Previous</a>
+        <a class="pagination-next" id="next">Next</a>
+    </nav>
 </div>
+<script>
+    $("#next").on('click',  function () {
+        $(".cardsss").animate({ right: '+=500px', left: '-=375px' });
+    });
+    $("#previous").on('click', function () {
+        $(".cardsss").animate({ left: '+=375px' });
+    });
+</script>

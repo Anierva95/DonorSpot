@@ -16,4 +16,11 @@ module.exports = function(app) {
             res.json(sumTotal);
         });
     });
-}
+    app.post("/api/transaction", function(req, res) {
+        console.log(req.body);
+        let newTransaction = req.body;
+        db.Transaction.create(newTransaction).then(function(dbTransaction){
+            res.json(dbTransaction);
+        })
+    });
+};

@@ -1,4 +1,4 @@
-{{#each charities}}
+{{#charities}}
 <section class="section">
     <div class="columns">
         <div class="column is-9">
@@ -25,50 +25,57 @@
             <p class="has-text-centered">
                 {{ descript }}
             </p>
-            <br />
+            <br>
+            <div class="has-text-centered">
+                <a class="button is-primary donate has-text-centered pageBtn" data-value={{ id }}>
+                    <strong>Donate</strong>
+                </a>
+            </div>
+            <br>
             <p class="has-text-centered is-size-5">
                 ${{ total }} out of ${{ goal }}
             </p>
-            <progress class="progress is-info" value="40" max="100">40%</progress>
+            <progress class="progress is-info" value={{ percent }} max="100">40%</progress>
         </div>
+        {{/charities}}
         <div class="column is-3">
             <div class="has-text-centered is-size-4">Donation List</div>
             <aside class="menu">
+                {{#each transactions}}
                 <ul class="menu-list">
                     <nav class="level is-size-5">
                         <div class="level-left">
-                            <li>
-                                <p>Henry Ni</p>
-                            </li>
-                        </div>
-                        <div class="level-right">
-                            <li>
-                                <p>$100.00</p>
-                            </li>
-                        </div>
-                    </nav>
-                    <nav class="level is-size-5">
-                        <div class="level-left">
-                            <li>
-                                <p>Henry Ni</p>
-                            </li>
-                        </div>
-                        <div class="level-right">
-                            <li>
-                                <p>$1000.00</p>
-                            </li>
-                        </div>
-                    </nav>
 
-                    <li>
-                        <p>Max</p>
-                    </li>
-                    <li>
-                        <p>Anthony</p>
-                    </li>
+                            <li>
+                                <p>{{ don_firstname }}</p>
+                            </li>
+                        </div>
+                        <div class="level-right">
+                            <li>
+                                <p>${{ donation }}</p>
+                            </li>
+
+                        </div>
+                    </nav>
                 </ul>
+                {{/each}}
             </aside>
         </div>
     </div>
 </section>
-{{/each}}
+<script>
+    $(document).ready(function () {
+        // pageBtn appears on the charitypage.handlebars
+        let pageBtn = $(".pageBtn")
+        $(pageBtn).on("click", handleSubmit)
+        function handleSubmit() {
+            let charityNum = $(this).data("value");
+            localStorage.setItem("charityId", charityNum);
+            window.location.replace('/donateForm')
+        };
+        const home = $(".Home");
+        home.on("click", function () {
+            window.location.replace("/");
+        })
+    });
+</script>

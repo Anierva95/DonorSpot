@@ -63,26 +63,54 @@ module.exports = function (app) {
         }).then(function (dbCharity) {
             let newArray = [];
             let oldObject = {};
+            oldObject.id = dbCharity.id;
             oldObject.title = dbCharity.title;
             oldObject.descript = dbCharity.descript;
             oldObject.total = parseInt(0);
-            oldObject.goal = dbCharity.goal;
+            oldObject.goal = parseInt(dbCharity.goal);
             oldObject.first_name = dbCharity.User.first_name;
             oldObject.last_name = dbCharity.User.last_name;
             let transaction = dbCharity.Transactions;
-            // console.log(transaction)
             transaction.forEach(elements => {
                 oldObject.total += parseInt(elements.dataValues.amount)
             })
+            oldObject.percent = (oldObject.total / oldObject.goal) * 100;
+            // Second query
+            let userTransactions = [];
+            let TransactionObj = {};
+            db.Transaction.findAll({
+                where: {
+                    CharityId: req.params.id
+                },
+                include: [db.Users]
+            }).then(function (dbUsers) {
+                // console.log(dbUsers[0]);
+                // console.log(dbUsers[0].dataValues.User.dataValues.first_name); //zhao
+                dbUsers.forEach(element => {
+                    if (!element.dataValues.User.dataValues.first_name) {
+                        TransactionObj.don_firstname = "Anonymous"
+                        TransactionObj.donation = element.dataValues.amount;
+                        userTransactions.push(TransactionObj);
+                        TransactionObj = {};
+                    } else {
+                        TransactionObj.don_firstname = element.dataValues.User.dataValues.first_name
+                        TransactionObj.donation = element.dataValues.amount;
+                        // console.log(TransactionObj);
+                        userTransactions.push(TransactionObj);
+                        TransactionObj = {};
+                    }
+                    // delete TransactionObj.don_firstname;
+                    // delete TransactionObj.don_amount
+                });
+                console.log(userTransactions);
+            })
             newArray.push(oldObject)
-            // return newArray;
-            // console.log(newArray);
+            // console.log("oldObject: " + newArray); STILL PASSING THROUGH AFTER SECOND QUERY
             let renderObject = {
-                charities: newArray //has to be an array to render
-            }
-            console.log(renderObject);
+                charities: newArray, //has to be an array to render
+                transactions: userTransactions
+            };
             res.render("charitypage", renderObject)
-            // res.json(newArray);
-        })
+        });
     });
 };

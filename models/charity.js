@@ -19,7 +19,7 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             validate: {
                 min: 10.00,
-                max: 1000000.00
+                max: 1000000000.00
             }
         }
     }, {

@@ -21,7 +21,7 @@
     <!-- Start navbar -->
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
+        <a class="navbar-item" href="/">
           <img
             src="https://bulma.io/images/bulma-logo.png"
             width="112"
@@ -44,41 +44,22 @@
 
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-          <a class="navbar-item">
+          <a class="navbar-item" href="/">
             Home
           </a>
-
-          <a class="navbar-item">
-            Documentation
-          </a>
-
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">
-              More
-            </a>
-
-            <div class="navbar-dropdown">
-              <a class="navbar-item">
-                About
-              </a>
-              <a class="navbar-item">
-                Jobs
-              </a>
-              <a class="navbar-item">
-                Contact
-              </a>
-              <hr class="navbar-divider" />
-              <a class="navbar-item">
-                Report an issue
-              </a>
-            </div>
-          </div>
         </div>
+
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <a class="button is-primary Home">
-                <strong>Home</strong>
+              <a class="button is-primary createCharity" href="/charityForm">
+                <strong>Create Charity</strong>
+              </a>
+              <a class="button is-light signup" href="/signup">
+                Sign Up
+              </a>
+              <a class="button is-light login" href="/login">
+                Log in
               </a>
             </div>
           </div>
@@ -156,7 +137,9 @@
 
         <div class="field is-grouped">
           <div class="control">
-            <button class="button is-link" name="submit" id="submitBtn">Submit</button>
+            <button class="button is-link" name="submit" id="submitBtn">
+              Submit
+            </button>
           </div>
           <div class="control">
             <button class="button is-link is-light">Cancel</button>
@@ -167,6 +150,5 @@
     <!-- End of form -->
 
     <script src="js/charity-form.js" type="text/javascript"></script>
-
   </body>
 </html>

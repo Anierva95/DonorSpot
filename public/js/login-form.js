@@ -2,6 +2,7 @@ $(document).ready(function () {
     var loginForm = $("#loginForm");
     var username = $("#username");
     var password = $("#password");
+    var errorMsg = $(".error");
     $(loginForm).on("submit", handleFormSubmit)
     function handleFormSubmit() {
         event.preventDefault();
@@ -11,12 +12,13 @@ $(document).ready(function () {
         }
         $.post("/api/users/login", loginObj).then(function (result) {
             console.log(result);
-            if (result.id >= 1) {
+            if (result) {
                 sessionStorage.setItem("userId", JSON.stringify(result.id));
                 sessionStorage.setItem("userName", JSON.stringify(result.username))
                 window.location.replace('/');
             } else {
-                response.send('Incorrect Username and/or Password!');
+                errorMsg.text("Incorrect username/password");
+                
             }
         })
     };

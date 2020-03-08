@@ -26,6 +26,11 @@
                     voluptatem dolorum cumque delectus. Ipsa fugiat aut omnis nulla
                     soluta officiis?
                 </h2>
+                <div class="buttons">
+                    <a class="button is-primary createCharity">
+                        <strong>Create Charity</strong>
+                    </a>
+                </div>
             </div>
             <div class="column right-image">
                 <img src="https://s32152.pcdn.co/wp-content/uploads/2018/11/UN0157364.jpg" alt="unicef image" />
@@ -54,13 +59,8 @@
                                 <div class="media-content">
                                     {{!-- Name of charity inserted here --}}
                                     <p class="title is-4 no-padding">{{ title }}</p>
-                                    <p>
-                                        {{!-- Link to rendered charity page --}}
-                                        <span class="title is-6"><a href="/charity/{{ id }}">Learn more...</a></span>
-                                        {{!--"http://twitter.com/#">@zhaocrack</a></span> --}}
-                                    </p>
                                     {{!-- Category the charity belongs under --}}
-                                    <p class="subtitle is-6">{{ category }}Category or Possibly goal here?</p>
+                                    <p class="subtitle is-6">Category: {{ category }}</p>
                                     {{!-- <img src= /> --}}
                                 </div>
                             </div>
@@ -70,6 +70,10 @@
                                     <span class="icon-twitter"></span>
                                 </div>
                             </div>
+                            <p>
+                                {{!-- Link to rendered charity page --}}
+                                <span class="title is-6"><a href="/charity/{{ id }}">Learn more...</a></span>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -83,7 +87,7 @@
     </nav>
 </div>
 <script>
-    $("#next").on('click',  function () {
+    $("#next").on('click', function () {
         $(".cardsss").animate({ right: '+=500px', left: '-=375px' });
     });
     $("#previous").on('click', function () {

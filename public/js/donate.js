@@ -8,6 +8,9 @@ $(document).ready(function () {
         $(".welcome").text("Hello, " + JSON.parse(sessionStorage.getItem("userName")));
         document.getElementById("signup").style.display = "none";
         document.getElementById("login").style.display = "none";
+        document.getElementById("logout").style.display = "block";
+    } else {
+        document.getElementById("logout").style.display = "none";
     };
     // console.log("No userId");
 

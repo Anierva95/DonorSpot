@@ -21,6 +21,10 @@ module.exports = function(sequelize, DataTypes) {
                 min: 10.00,
                 max: 1000000000.00
             }
+        },
+        category: {
+            type: DataTypes.STRING,
+            allowNull: false,
         }
     }, {
         timestamps: false

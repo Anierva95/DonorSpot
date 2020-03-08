@@ -5,6 +5,7 @@ module.exports = function(app) {
         db.Users.findAll({
             include: [db.Charity]
         }).then(function(dbUsers) {
+            // console.log(dbUsers)
             res.json(dbUsers);
         });
     });
@@ -14,4 +15,9 @@ module.exports = function(app) {
             res.json(dbUsers);
         })
     });
+    // app.get("/", function(req, res){
+    //     db.Users.findAll({}).then(function(dbUsers){
+    //         console.log(dbUsers);
+    //     })
+    // })
 }

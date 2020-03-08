@@ -1,10 +1,51 @@
-.hero {
-  background-image: url("https://images.unsplash.com/photo-1492176273113-2d51f47b23b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+.quoteHead {
+  background: linear-gradient( rgba(0,0,0,0.05), rgba(0, 0, 0, 0.5) ), url("https://images.unsplash.com/photo-1492176273113-2d51f47b23b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  text-shadow: 2px 2px black;
 }
 
+#logoIcon {
+  width: 30px;
+}
+
+#missionStatement {
+  font-size: 30px;
+  margin-top: 50px;
+}
+
+.columnIcon {
+  font-size: 60px;
+  margin: 20px 0;
+  color: whitesmoke;
+}
+
+
+#howTo {
+  text-align: center;
+  font-size: 50px;
+  color: whitesmoke;
+  margin-top: 15px;
+  font-weight: 300;
+}
+
+
+.stepDescription {
+  font-size: 20px;
+  color: whitesmoke
+}
+
+.steps {
+  text-align: center;
+  height: 400px;
+}
+
+.columnHeader {
+  margin-top: 30px;
+  font-size: 30px;
+  color: whitesmoke;
+}
 .charities {
   overflow-x: scroll;
   width: auto;
@@ -16,16 +57,16 @@
   -webkit-transform: scale(1.1); 
   transform: scale(1.1); 
   cursor: pointer;
+}
 
-@media (min-width 900px){
+/* @media (min-width 900px){
   .cardsss:hover{
     -ms-transform: scale(1.1); 
     -webkit-transform: scale(1.1); 
     transform: scale(1.1); 
     cursor: pointer;
 }
-
-}
+} */
 .cardsss{
   position: fixed;
   transition:transform 0.5s;

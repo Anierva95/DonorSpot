@@ -1,3 +1,11 @@
+.navbar {
+  position: fixed;
+}
+
+.charitiesDisplay {
+  height: 75vh;
+}
+
 .quoteHead {
   background: linear-gradient( rgba(0,0,0,0.05), rgba(0, 0, 0, 0.5) ), url("https://images.unsplash.com/photo-1492176273113-2d51f47b23b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
   background-repeat: no-repeat;

@@ -15,10 +15,10 @@
 
 <body>
     {{!-- Navbar starts here --}}
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="/">
-                <img id="logoIcon" src="https://static.thenounproject.com/png/4060-200.png" width="112" height="28" />
+                <img id="logoIcon" src="https://static.thenounproject.com/png/4060-200.png"/>
                 DonorSpot
             </a>
 
@@ -43,10 +43,13 @@
                         <a class="button is-light signup" id="signup">
                             Sign Up
                         </a>
-                        <a class="button is-light login" id="login">
+                <a class="button is-light login" id="login">
                             Log in
                         </a>
                         <a class="welcome is-size-4"></a>
+                                 <a class="button is-light logout" id="logout">
+                            Log Out
+                        </a>
                     </div>
                 </div>
             </div>
@@ -60,7 +63,7 @@
             document.getElementById("signup").style.display = "none";
             document.getElementById("login").style.display = "none";
         } else {
-            console.log("No userId");
+            document.getElementById("logout").style.display = "none";
         }
     </script>
 </body>

@@ -18,7 +18,7 @@
     <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="/">
-                <img id="logoIcon" src="https://static.thenounproject.com/png/4060-200.png"/>
+                <img id="logoIcon" src="https://static.thenounproject.com/png/4060-200.png" />
                 DonorSpot
             </a>
 
@@ -43,11 +43,11 @@
                         <a class="button is-light signup" id="signup">
                             Sign Up
                         </a>
-                <a class="button is-light login" id="login">
+                        <a class="button is-light login" id="login">
                             Log in
                         </a>
                         <a class="welcome is-size-4"></a>
-                                 <a class="button is-light logout" id="logout">
+                        <a class="button is-light logout" id="logout">
                             Log Out
                         </a>
                     </div>
@@ -62,9 +62,16 @@
             $(".welcome").text("Hello, " + JSON.parse(sessionStorage.getItem("userName")));
             document.getElementById("signup").style.display = "none";
             document.getElementById("login").style.display = "none";
+            document.getElementById("logout").style.display = "block";
         } else {
             document.getElementById("logout").style.display = "none";
         }
+        const logOut = $(".logout");
+        logOut.on("click", function () {
+            console.log("clicked");
+            sessionStorage.clear();
+            window.location.reload();
+        })
     </script>
 </body>
 

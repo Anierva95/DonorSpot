@@ -16,12 +16,13 @@ $(document).ready(function () {
             title: charityName.val().trim(), // returns Henry's Fund
             goal: goal.val().trim(),         // returns 100000
             descript: descript.val().trim(),
+            category: category.val(),
             UserId: userId,  // returns To assist my...
         }
         // console.log(newCharity);
         // console.log(currency.val()); // returns $ 
         // console.log(category.val()); // returns select dropdown
-
+        console.log(newCharity);
         $.post("/api/charity", newCharity).then(function(result) {
             // console.log(result);
         })

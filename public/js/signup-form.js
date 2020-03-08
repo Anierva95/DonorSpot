@@ -19,7 +19,7 @@ $(document).ready(function () {
         $.post("/api/users", newUsername).then(function (result) {
             console.log("This is the " + result)
             if (result) {
-                window.location.replace("/")
+                window.location.replace("/login")
             }
         })
     }

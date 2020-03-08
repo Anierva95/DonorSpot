@@ -4,16 +4,22 @@ $(document).ready(function () {
     let donateAmount = $("#donation");
     $(submitDonation).on("submit", handleFormSubmit)
     if (sessionStorage.getItem("userId")) {
-        console.log("There is a userId");
+        // console.log("There is a userId");
         $(".welcome").text("Hello, " + JSON.parse(sessionStorage.getItem("userName")));
         document.getElementById("signup").style.display = "none";
         document.getElementById("login").style.display = "none";
-    } else {
-        console.log("No userId");
-    }
+    };
+    // console.log("No userId");
+
     function handleFormSubmit() {
         event.preventDefault();
-        let localId = sessionStorage.getItem("userId");
+        if (!sessionStorage.getItem("userId")) {
+            localId = 1
+            // console.log("Yay we're donating as anon")
+        } else {
+            localId = sessionStorage.getItem("userId");
+            // console.log("I'm a real user")
+        }
         let btnId = localStorage.getItem("charityId");
         var newDonation = {
             amount: donateAmount.val().trim(),

@@ -9,19 +9,49 @@ module.exports = function (app) {
         })
     });
     app.get("/", function (req, res) {
-        db.Charity.findAll({
-        }).then(function (dbCharity) {
-            // console.log(dbCharity);
-            let newCharity = []
-            dbCharity.forEach(element => {
-                let newData = element.dataValues
-                newCharity.push(newData)
-            });
-            var newObject = {
-                charities: newCharity
-            };
-            console.log(newObject);
-            res.render("charity", newObject)
+        db.Users.findAll({}).then(function (dbUsers) {
+            console.log(dbUsers);
+            if (dbUsers == "") {
+                console.log("It's empty!")
+                db.Users.create({
+                    username: "Anonymous",
+                    passwd: "12lkjasdiuqwelkzlkjuq",
+                    email: "anon@anon.com",
+                    first_name: "Anonymous",
+                    last_name: "Anonymous"
+                });
+            }; //else {
+            //     dbUsers.forEach(element => {
+            //         if (element.dataValues.username != "Anonymous" || dbUsers == "") {
+            //             console.log("Anon not found");
+            //             db.Users.create({
+            //                 username: "Anonymous",
+            //                 passwd: "12lkjasdiuqwelkzlkjuq",
+            //                 email: "anon@anon.com",
+            //                 first_name: "Anonymous",
+            //                 last_name: "Anonymous"
+            //             });
+            //         } else {
+            //             console.log("Failed to find Anon");
+            //         }
+            //     });
+            // };
+        }).then(function (result) {
+            console.log("yay we passed through " + result)
+            db.Charity.findAll({
+            }).then(function (dbCharity) {
+                // console.log(dbCharity);
+                let newCharity = []
+                dbCharity.forEach(element => {
+                    let newData = element.dataValues
+                    newCharity.push(newData)
+                });
+                var newObject = {
+                    charities: newCharity
+                };
+                // console.log(newObject);
+                res.render("charity", newObject)
+            })
         })
     });
     app.post("/api/charity", function (req, res) {
@@ -30,30 +60,7 @@ module.exports = function (app) {
             res.json(dbCharity);
         });
     });
-    // BELOW WAS COMBINED INTO ANOTHER FUNCTION
-    // app.get("/api/userCharity", function (req, res) {
-    //     db.Charity.findAll({
-    //         include: [db.Users, db.Transaction]
-    //     }).then(function (dbUserCharity) {
-    //         res.json(dbUserCharity);
-    //         let newArray = [];
-    //         let sum = parseInt(0);
-    //         dbUserCharity.forEach(element => {
-    //             let oldObject = {}
-    //             oldObject.first_name = element.User.first_name;
-    //             oldObject.last_name = element.User.last_name;
-    //             let transaction = element.Transactions;
-    //             console.log(transaction)
-    //             transaction.forEach(elements => {
-    //                 sum += parseInt(elements.dataValues.amount)
-    //             });
 
-    //             newArray.push(newObject)
-    //         });
-    //         console.log(newArray);
-    //         console.log(sum);
-    //     });
-    // });
     app.get("/charity/:id", function (req, res) {
         db.Charity.findOne({
             where: {
@@ -84,8 +91,6 @@ module.exports = function (app) {
                 },
                 include: [db.Users]
             }).then(function (dbUsers) {
-                // console.log(dbUsers[0]);
-                // console.log(dbUsers[0].dataValues.User.dataValues.first_name); //zhao
                 dbUsers.forEach(element => {
                     if (!element.dataValues.User.dataValues.first_name) {
                         TransactionObj.don_firstname = "Anonymous"
@@ -95,19 +100,15 @@ module.exports = function (app) {
                     } else {
                         TransactionObj.don_firstname = element.dataValues.User.dataValues.first_name
                         TransactionObj.donation = element.dataValues.amount;
-                        // console.log(TransactionObj);
                         userTransactions.push(TransactionObj);
                         TransactionObj = {};
                     }
-                    // delete TransactionObj.don_firstname;
-                    // delete TransactionObj.don_amount
                 });
                 console.log(userTransactions);
             })
             newArray.push(oldObject)
-            // console.log("oldObject: " + newArray); STILL PASSING THROUGH AFTER SECOND QUERY
             let renderObject = {
-                charities: newArray, //has to be an array to render
+                charities: newArray,
                 transactions: userTransactions
             };
             res.render("charitypage", renderObject)

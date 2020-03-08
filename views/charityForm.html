@@ -23,10 +23,12 @@
       <div class="navbar-brand">
         <a class="navbar-item" href="/">
           <img
-            src="https://bulma.io/images/bulma-logo.png"
+            id="logoIcon"
+            src="https://static.thenounproject.com/png/4060-200.png"
             width="112"
             height="28"
           />
+          DonorSpot
         </a>
 
         <a
@@ -80,7 +82,7 @@
             />
           </div>
         </div>
-
+        <label class="label">Goal (min. $10.00)</label>
         <div class="field has-addons">
           <p class="control">
             <span class="select">
@@ -146,6 +148,9 @@
           <div class="control">
             <button class="button is-link is-light">Cancel</button>
           </div>
+        </div>
+        <div class="section has-text-centered">
+          <p class="is-size-4 has-text-weight-bold" id= "stopSubmit"></p>
         </div>
       </div>
     </form>

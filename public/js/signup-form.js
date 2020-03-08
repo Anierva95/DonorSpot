@@ -8,21 +8,23 @@ $(document).ready(function () {
 
     $(signup).on("submit", handleFormSubmit)
     function handleFormSubmit() {
+        event.preventDefault();
         var newUsername = {
-            username: userName.val().trim(), 
-            passwd: userPass.val().trim(), 
-            email: email.val().trim(),       
+            username: userName.val().trim(),
+            passwd: userPass.val().trim(),
+            email: email.val().trim(),
             first_name: firstName.val().trim(),
             last_name: lastName.val().trim()
         }
-        console.log(newUsername);
-
-        $.post("/api/users", newUsername).then(function(result) {
-            console.log(result);
+        $.post("/api/users", newUsername).then(function (result) {
+            console.log("This is the " + result)
+            if (result) {
+                window.location.replace("/")
+            }
         })
     }
     const home = $(".Home");
-    home.on("click", function() {
-    window.location.replace("/");
+    home.on("click", function () {
+        window.location.replace("/");
     })
 });

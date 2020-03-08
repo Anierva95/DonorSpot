@@ -9,25 +9,35 @@ $(document).ready(function () {
 
     $(charity).on("submit", handleFormSubmit)
 
+    if (sessionStorage.getItem("userId")) {
+        console.log("There is a userId");
+        $(".welcome").text("Hello, " + JSON.parse(sessionStorage.getItem("userName")));
+        document.getElementById("signup").style.visibility = "hidden";
+        document.getElementById("login").style.visibility = "hidden";
+    } else {
+        console.log("No userId");
+    }
+
     function handleFormSubmit() {
         event.preventDefault();
         let userId = sessionStorage.getItem("userId");
         var newCharity = {
-            title: charityName.val().trim(), // returns Henry's Fund
-            goal: goal.val().trim(),         // returns 100000
+            title: charityName.val().trim(), 
+            goal: goal.val().trim(),        
             descript: descript.val().trim(),
             category: category.val(),
-            UserId: userId,  // returns To assist my...
+            UserId: userId, 
         }
-        // console.log(newCharity);
-        // console.log(currency.val()); // returns $ 
-        // console.log(category.val()); // returns select dropdown
         console.log(newCharity);
-        $.post("/api/charity", newCharity).then(function(result) {
-            // console.log(result);
+        $.post("/api/charity", newCharity).then(function (result) {
+            console.log(result.id)
+            if (result) {
+                window.location.replace("/charity/" + result.id)
+            }
         })
     }
     const home = $(".Home");
-    home.on("click", function() {
-    window.location.replace("/");
-    })});
+    home.on("click", function () {
+        window.location.replace("/");
+    })
+});

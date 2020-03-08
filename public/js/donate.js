@@ -2,26 +2,26 @@
 $(document).ready(function () {
     let submitDonation = $("#submitDonation");
     let donateAmount = $("#donation");
-
     $(submitDonation).on("submit", handleFormSubmit)
+    if (sessionStorage.getItem("userId")) {
+        console.log("There is a userId");
+        $(".welcome").text("Hello, " + JSON.parse(sessionStorage.getItem("userName")));
+        document.getElementById("signup").style.display = "none";
+        document.getElementById("login").style.display = "none";
+    } else {
+        console.log("No userId");
+    }
     function handleFormSubmit() {
-        // event.preventDefault();
+        event.preventDefault();
         let localId = sessionStorage.getItem("userId");
-        // if (!localId) {
-        //     localId = ""
-        // };
         let btnId = localStorage.getItem("charityId");
-        // console.log("btnId: " + btnId);
-        // console.log("localId: " + localId);
-        // console.log(donateAmount.val().trim());
         var newDonation = {
             amount: donateAmount.val().trim(),
             CharityId: btnId,
             UserId: localId
         }
-        // console.log(newDonation);
         $.post("/api/transaction", newDonation).then(function (result) {
-            console.log(result);
+            window.location.replace("/charity/" + btnId)
         })
     };
     $(".Home").on("click", function () {

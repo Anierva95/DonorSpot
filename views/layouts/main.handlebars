@@ -23,9 +23,9 @@
 
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
                 data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
+                <span aria-none="true"></span>
+                <span aria-none="true"></span>
+                <span aria-none="true"></span>
             </a>
         </div>
 
@@ -38,22 +38,30 @@
 
             <div class="navbar-end">
                 <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-primary createCharity">
-                            <strong>Create Charity</strong>
-                        </a>
-                        <a class="button is-light signup">
+                    <div class="buttons mainBtns">
+                        <a class="button is-light signup" id="signup">
                             Sign Up
                         </a>
-                        <a class="button is-light login">
+                        <a class="button is-light login" id="login">
                             Log in
                         </a>
+                        <a class="welcome is-size-4"></a>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
     {{{ body }}}
+    <script>
+        if (sessionStorage.getItem("userId")) {
+            console.log("There is a userId");
+            $(".welcome").text("Hello, " + JSON.parse(sessionStorage.getItem("userName")));
+            document.getElementById("signup").style.display = "none";
+            document.getElementById("login").style.display = "none";
+        } else {
+            console.log("No userId");
+        }
+    </script>
 </body>
 
 </html>

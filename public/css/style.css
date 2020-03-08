@@ -10,13 +10,36 @@
   width: auto;
   position: absolute;
 }
+
 .cardsss:hover{
   -ms-transform: scale(1.1); 
   -webkit-transform: scale(1.1); 
   transform: scale(1.1); 
   cursor: pointer;
+
+@media (min-width 900px){
+  .cardsss:hover{
+    -ms-transform: scale(1.1); 
+    -webkit-transform: scale(1.1); 
+    transform: scale(1.1); 
+    cursor: pointer;
+}
+
 }
 .cardsss{
   position: fixed;
   transition:transform 0.5s;
+}
+
+.btns {
+  background-color: hsl(171, 100%, 41%);
+  align-items: center;
+  height: 50px;
+  width: 50px;
+}
+
+@media screen and (max-width : 1130px) {
+  .btns {
+    visibility: hidden;
+  }
 }

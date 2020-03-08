@@ -14,4 +14,10 @@ $(document).ready(function () {
     $(".cardsss").on("click",function(){
         console.log("success")
     })
+    const logOut = $(".logout");
+    logOut.on("click", function() {
+    console.log("clicked");
+    sessionStorage.clear();
+    window.location.reload();
+    })
 });

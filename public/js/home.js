@@ -19,5 +19,17 @@ $(document).ready(function () {
     console.log("clicked");
     sessionStorage.clear();
     window.location.reload();
+    });
+
+    const userId = sessionStorage.getItem("userId");
+
+    $(".welcome").on("click", function() {
+        console.log(userId);
+        $.get("/accounts/:id", userId).then(function (result) {
+            // console.log(result.id)
+            if (result) {
+            window.location.replace("/accounts/" + userId);
+            }
+        })
     })
 });

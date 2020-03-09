@@ -1,38 +1,43 @@
 <section class="hero is-danger is-medium">
     <div class="hero-body">
-
+{{#user}}
     </div>
   </section>
   <div class="columns">
-    <div class="column is-4"></div>
-    <div class="card column is-4">
+    <div class="column is-1"></div>
+    <div class="card column is-10">
       <header class="card-header">
         <p class="card-header-title">
-         {{ userName }} 
+         Username: {{ username }} 
         </p>
+        {{/user}}
       </header>
       <div class="card-content">
         <div class="content">
           <div class="columns">
             <div class="column">
-
-              <h1 class="subtitle">{{ money }}</h1>
-              money that you donated/$
+              <h1>Your Charities</h1>
+              {{#each charities}}
+              <p class="subtitle"><strong>{{ charityTitle }}</strong> Goal: ${{ charityGoal }}</p>
+               {{/each}}
             </div>
+           
             <div class="column">
               
-             <h1 class="subtitle">{{ 1 }}</h1>
-             Number of charity that you have helped/times
+             <h1 class="subtitle">Your donation transactions</h1>
+             
+             {{#each transactions}}
+             <p class="subtitle"><strong>{{charity}}</strong> Amount: {{amount}}</p>
+             {{/each}}
             </div>
           </div>
-
         </div>
       </div>
       <footer class="card-footer">
         <a href="#" class="card-footer-item">Back to home</a>
       </footer>
     </div>
-    <div class="column is-4"></div>
+    <div class="column is-1"></div>
 
   </div>
 

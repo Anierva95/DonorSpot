@@ -26,6 +26,7 @@ $(document).ready(function () {
         const userId = sessionStorage.getItem("userId");
         console.log(userId);
         $.get("/accounts/" + userId).then(function (result) {
+
             if (result) {
             window.location.replace("/accounts/" + userId);
             }

@@ -95,6 +95,7 @@ module.exports = function (app) {
                 include: [db.Users]
             }).then(function (dbUsers) {
                 dbUsers.forEach(element => {
+                    // Creating object of arrays with first name and donation
                     if (!element.dataValues.User.dataValues.first_name) {
                         TransactionObj.don_firstname = "Anonymous"
                         TransactionObj.donation = element.dataValues.amount;
@@ -107,12 +108,12 @@ module.exports = function (app) {
                         TransactionObj = {};
                     }
                 });
-                console.log(userTransactions);
-                newArray.push(oldObject)
+                newArray.push(oldObject);
                 let renderObject = {
                     charities: newArray,
                     transactions: userTransactions
                 };
+                console.log(renderObject);
                 res.render("charitypage", renderObject)
             })
 

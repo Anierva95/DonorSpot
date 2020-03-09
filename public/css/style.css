@@ -3,7 +3,15 @@
 }
 
 .charitiesDisplay {
-  height: 75vh;
+  height: 85vh;
+}
+
+.charityPage {
+  margin-top: 50px;
+}
+
+#charity {
+  margin-top: 80px;
 }
 
 .quoteHead {

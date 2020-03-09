@@ -105,13 +105,14 @@ module.exports = function (app) {
                     }
                 });
                 console.log(userTransactions);
+                newArray.push(oldObject)
+                let renderObject = {
+                    charities: newArray,
+                    transactions: userTransactions
+                };
+                res.render("charitypage", renderObject)
             })
-            newArray.push(oldObject)
-            let renderObject = {
-                charities: newArray,
-                transactions: userTransactions
-            };
-            res.render("charitypage", renderObject)
+
         });
     });
 };

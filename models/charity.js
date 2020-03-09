@@ -14,6 +14,13 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1,500] //at least 1 length, but up to 500
             }
         },
+        summary: {
+            type: DataTypes.TEXT,
+            allowNull: false,
+            validate: {
+                len: [1,500] //at least 1 length, but up to 500
+            }
+        },
         goal: {
             type: DataTypes.DECIMAL(10, 2), //length 10 and 2 decimal places
             allowNull: false,

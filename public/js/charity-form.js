@@ -3,6 +3,7 @@ $(document).ready(function () {
     var currency = $("#currency");
     var goal = $("#goal");
     var category = $("#category");
+    var summary = $("#summary");
     var descript = $("#descript");
     var submit = $("#submitBtn");
     var charity = $("#charity");
@@ -34,6 +35,7 @@ $(document).ready(function () {
             title: charityName.val().trim(),
             goal: goal.val().trim(),
             descript: descript.val().trim(),
+            summary: summary.val().trim(),
             category: category.val(),
             UserId: userId,
         }

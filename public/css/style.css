@@ -72,20 +72,13 @@
   position: absolute;
 }
 
-.cardsss:hover{
-  -ms-transform: scale(1.1); 
-  -webkit-transform: scale(1.1); 
-  transform: scale(1.1); 
-}
-
-/* @media (min-width 900px){
+@media (min-width: 1130px){
   .cardsss:hover{
-    -ms-transform: scale(1.1); 
-    -webkit-transform: scale(1.1); 
-    transform: scale(1.1); 
-    cursor: pointer;
+    -ms-transform: scale(.9); 
+    -webkit-transform: scale(.9); 
+    transform: scale(.9); 
 }
-} */
+}
 .cardsss{
   position: fixed;
   transition:transform 0.5s;
@@ -107,3 +100,4 @@
 li {
   list-style: none;
 }
+

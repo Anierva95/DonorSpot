@@ -21,12 +21,11 @@ $(document).ready(function () {
     window.location.reload();
     });
 
-    const userId = sessionStorage.getItem("userId");
 
     $(".welcome").on("click", function() {
+        const userId = sessionStorage.getItem("userId");
         console.log(userId);
-        $.get("/accounts/:id", userId).then(function (result) {
-            // console.log(result.id)
+        $.get("/accounts/" + userId).then(function (result) {
             if (result) {
             window.location.replace("/accounts/" + userId);
             }

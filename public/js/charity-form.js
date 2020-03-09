@@ -29,7 +29,13 @@ $(document).ready(function () {
             return;
         } else if (goal.val() < 10) {
             stopSubmit.text("You have not set a goal higher than what is required.");
+            return;
+        } else if (descript.val().length > 30) {
+            stopSubmit.text("The description you have entered is greater than the 50 character limit.")
+            return;
         }
+        console.log(descript.val())
+        console.log(descript.val().length)
         let userId = sessionStorage.getItem("userId");
         var newCharity = {
             title: charityName.val().trim(),
@@ -44,7 +50,7 @@ $(document).ready(function () {
             // console.log(result.id)
             if (result) {
                 window.location.replace("/charity/" + result.id)
-            }
+            };
         })
     }
     const home = $(".Home");

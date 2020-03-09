@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.TEXT,
             allowNull: false,
             validate: {
-                len: [1,500] //at least 1 length, but up to 500
+                len: [1,50] //at least 1 length, but up to 500
             }
         },
         summary: {

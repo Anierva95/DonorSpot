@@ -72,6 +72,7 @@ module.exports = function (app) {
             let oldObject = {};
             oldObject.id = dbCharity.id;
             oldObject.title = dbCharity.title;
+            oldObject.summary = dbCharity.summary;
             oldObject.descript = dbCharity.descript;
             oldObject.total = parseInt(0);
             oldObject.goal = parseInt(dbCharity.goal);

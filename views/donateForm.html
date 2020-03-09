@@ -106,6 +106,19 @@
               </span>
             </div>
           </div>
+          <div class="field">
+            <label class="label">Credit card</label>
+            <div class="control has-icons-left has-icons-right">
+              <input id="cc" class="input" type="firstname" placeholder="Credit Card" />
+              <span class="icon is-small is-left">
+                <i class="fa fa-credit-card"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fa fa-check"></i>
+              </span>
+              <p id=cardtype></p>
+            </div>
+          </div>
           <label class="label">Donation</label>
           <div class="field has-addons">
             <p class="control">
@@ -137,5 +150,20 @@
     </form>
     <script src="/js/donate.js" type="text/javascript"></script>
     <script src="/js/home.js" type="text/javascript"></script>
+    <script src="/js/cleave.js"></script>
+  <script>
+    var cc_type = 'unknown';
+    var icon = $('#cardtype');
+    var card = new Cleave('#cc', {
+      creditCard: true,
+      onCreditCardTypeChanged: function (type) {
+        console.log(type);
+        cc_type = type;
+        console.log(cc_type+"this is cctype")
+        $("#cardtype").text(cc_type)
+      }
+    });
+  </script>
   </body>
 </html>
+

@@ -5,7 +5,6 @@ module.exports = function(app) {
         db.Users.findAll({
             include: [db.Charity]
         }).then(function(dbUsers) {
-            // console.log(dbUsers)
             res.json(dbUsers);
         });
     });
@@ -15,20 +14,15 @@ module.exports = function(app) {
             res.json(dbUsers);
         })
     });
-    // app.get("/", function(req, res){
-    //     db.Users.findAll({}).then(function(dbUsers){
-    //         console.log(dbUsers);
-    //     })
-    // })
 
     app.get("/accounts/:id", function (req, res) {
-        console.log("req is: " + req.params.id)
         db.Users.findOne({
             where: {
                 id: req.params.id
             },
             include: [db.Charity, db.Transaction]
         }).then(function(dbAccount) {
+
             // Grab relevant userData into object
             const userDataObject = {
                 username: dbAccount.dataValues.username,

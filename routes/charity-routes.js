@@ -20,30 +20,32 @@ module.exports = function (app) {
                     first_name: "Anonymous",
                     last_name: "Anonymous"
                 });
-            }; //else {
-            //     dbUsers.forEach(element => {
-            //         if (element.dataValues.username != "Anonymous" || dbUsers == "") {
-            //             console.log("Anon not found");
-            //             db.Users.create({
-            //                 username: "Anonymous",
-            //                 passwd: "12lkjasdiuqwelkzlkjuq",
-            //                 email: "anon@anon.com",
-            //                 first_name: "Anonymous",
-            //                 last_name: "Anonymous"
-            //             });
-            //         } else {
-            //             console.log("Failed to find Anon");
-            //         }
-            //     });
-            // };
+            };
         }).then(function (result) {
             console.log("yay we passed through " + result)
             db.Charity.findAll({
             }).then(function (dbCharity) {
                 // console.log(dbCharity);
+                let imageArr = [
+                    "https://source.unsplash.com/collection/1125042/1280x960",
+                    "https://source.unsplash.com/collection/375719/1280x960",
+                    "https://source.unsplash.com/collection/3053437/1280x960",
+                    "https://source.unsplash.com/collection/1927934/1280x960",
+                    "https://source.unsplash.com/collection/9042806/1280x960",
+                    "https://source.unsplash.com/collection/1270951/1280x960",
+                    "https://source.unsplash.com/collection/3106804/1280x960",
+                    "https://source.unsplash.com/collection/181581/1280x960",
+                    "https://source.unsplash.com/collection/225/1280x960",
+                    "https://source.unsplash.com/collection/208403/1280x960",
+                    "https://source.unsplash.com/collection/2489501/1280x960",
+                    "https://source.unsplash.com/collection/1110/1280x960",
+                ]
                 let newCharity = []
                 dbCharity.forEach(element => {
                     let newData = element.dataValues
+                    let ranNum = Math.floor(Math.random() * Math.floor(imageArr.length))
+                    // console.log(ranNum);
+                    newData.image_url = imageArr[ranNum];
                     newCharity.push(newData)
                 });
                 var newObject = {

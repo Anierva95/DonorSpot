@@ -19,45 +19,59 @@
 
   <body>
     <!-- Start navbar -->
-    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="/">
-                <img id="logoIcon" src="https://static.thenounproject.com/png/4060-200.png" width="112" height="28" />
-                DonorSpot
-            </a>
+    <nav
+      class="navbar is-fixed-top"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <img
+            id="logoIcon"
+            src="https://static.thenounproject.com/png/4060-200.png"
+            width="112"
+            height="28"
+          />
+          DonorSpot
+        </a>
 
-            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-                data-target="navbarBasicExample">
-                <span aria-none="true"></span>
-                <span aria-none="true"></span>
-                <span aria-none="true"></span>
-            </a>
+        <a
+          role="button"
+          class="navbar-burger burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+        >
+          <span aria-none="true"></span>
+          <span aria-none="true"></span>
+          <span aria-none="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="/">
+            Home
+          </a>
         </div>
 
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item" href="/">
-                    Home
-                </a>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons mainBtns">
+              <a class="button is-light signup" id="signup">
+                Sign Up
+              </a>
+              <a class="button is-light login" id="login">
+                Log in
+              </a>
+              <a class="welcome is-size-4"></a>
+              <a class="button is-light logout" id="logout">
+                Log Out
+              </a>
             </div>
-
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons mainBtns">
-                        <a class="button is-light signup" id="signup">
-                            Sign Up
-                        </a>
-                <a class="button is-light login" id="login">
-                            Log in
-                        </a>
-                        <a class="welcome is-size-4"></a>
-                                 <a class="button is-light logout" id="logout">
-                            Log Out
-                        </a>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
     </nav>
     <!-- End navbar -->
 
@@ -144,12 +158,13 @@
           </div>
         </div>
         <div class="section has-text-centered">
-          <p class="is-size-4 has-text-weight-bold" id= "stopSubmit"></p>
+          <p class="is-size-4 has-text-weight-bold" id="stopSubmit"></p>
         </div>
       </div>
     </form>
     <!-- End of form -->
 
     <script src="js/charity-form.js" type="text/javascript"></script>
+    <script src="js/home.js" type="text/javascript"></script>
   </body>
 </html>

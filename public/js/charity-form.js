@@ -15,6 +15,9 @@ $(document).ready(function () {
         $(".welcome").text("Hello, " + JSON.parse(sessionStorage.getItem("userName")));
         document.getElementById("signup").style.visibility = "hidden";
         document.getElementById("login").style.visibility = "hidden";
+        document.getElementById("logout").style.display = "block";
+    } else {
+        document.getElementById("logout").style.display = "none";
     };
     // console.log("No userId");
 

@@ -11,6 +11,7 @@ $(document).ready(function () {
     logIn.on("click", function() {
     window.location.replace("/login");
     })
+
     $(".cardsss").on("click",function(){
         console.log("success")
     })

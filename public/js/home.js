@@ -25,7 +25,7 @@ $(document).ready(function () {
 
     $(".welcome").on("click", function() {
         console.log(userId);
-        $.get("/accounts/:id", userId).then(function (result) {
+        $.get("/accounts/" + userId).then(function (result) {
             // console.log(result.id)
             if (result) {
             window.location.replace("/accounts/" + userId);

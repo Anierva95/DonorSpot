@@ -72,20 +72,27 @@ module.exports = function (app) {
         }).then(function (dbCharity) {
             let newArray = [];
             let oldObject = {};
+            let percentTotal = parseInt(0);
+            let percentGoal = dbCharity.goal;
             oldObject.id = dbCharity.id;
             oldObject.title = dbCharity.title;
             oldObject.summary = dbCharity.summary;
             oldObject.descript = dbCharity.descript;
             oldObject.total = parseInt(0);
-            oldObject.goal = parseInt(dbCharity.goal);
+            oldObject.goal = thousands_separators(dbCharity.goal);
             oldObject.first_name = dbCharity.User.first_name;
             oldObject.last_name = dbCharity.User.last_name;
             let transaction = dbCharity.Transactions;
+            console.log(transaction);
             transaction.forEach(elements => {
-                oldObject.total += parseInt(elements.dataValues.amount)
+                oldObject.total += parseInt(elements.dataValues.amount);
+                percentTotal += parseInt(elements.dataValues.amount);
+
             })
-            oldObject.percent = (oldObject.total / oldObject.goal) * 100;
-            oldObject.total = oldObject.total;
+
+            oldObject.total = thousands_separators(oldObject.total.toFixed(2));
+            oldObject.percent = (percentTotal / percentGoal) * 100;
+            
             // Second query
             let userTransactions = [];
             let TransactionObj = {};
@@ -114,7 +121,7 @@ module.exports = function (app) {
                     charities: newArray,
                     transactions: userTransactions
                 };
-                console.log(renderObject);
+                // console.log(renderObject);
                 res.render("charitypage", renderObject)
             })
 

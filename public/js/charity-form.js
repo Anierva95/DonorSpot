@@ -39,7 +39,7 @@ $(document).ready(function () {
         let userId = sessionStorage.getItem("userId");
         var newCharity = {
             title: charityName.val().trim(),
-            goal: goal.val().trim(),
+            goal: goal.val().trim().split(",").join(""),
             descript: descript.val().trim(),
             summary: summary.val().trim(),
             category: category.val(),

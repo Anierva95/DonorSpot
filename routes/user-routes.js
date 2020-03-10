@@ -1,27 +1,31 @@
 const db = require("../models");
 
-module.exports = function(app) {
-    app.get("/api/users", function(req, res) {
+module.exports = function (app) {
+    app.get("/api/users", function (req, res) {
         db.Users.findAll({
             include: [db.Charity]
-        }).then(function(dbUsers) {
+        }).then(function (dbUsers) {
             res.json(dbUsers);
         });
     });
-    app.post("/api/users", function(req, res) {
+    app.post("/api/users", function (req, res) {
         const newUser = req.body;
-        db.Users.create(newUser).then(function(dbUsers){
+        db.Users.create(newUser).then(function (dbUsers) {
             res.json(dbUsers);
         })
     });
-
+    function thousands_separators(num) {
+        var num_parts = num.toString().split(".");
+        num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return num_parts.join(".");
+    }
     app.get("/accounts/:id", function (req, res) {
         db.Users.findOne({
             where: {
                 id: req.params.id
             },
             include: [db.Charity, db.Transaction]
-        }).then(function(dbAccount) {
+        }).then(function (dbAccount) {
 
             // Grab relevant userData into object
             const userDataObject = {
@@ -44,44 +48,45 @@ module.exports = function(app) {
             // Index through each charity and create objects for each
             userCharities.forEach(charity => {
                 charityObj.charityTitle = charity.dataValues.title;
-                charityObj.charityGoal = charity.dataValues.goal;
+                charityObj.charityGoal = ("$ " + thousands_separators(charity.dataValues.goal));
                 charityArray.push(charityObj);
                 charityObj = {};
             })
 
 
 
-        db.Transaction.findAll({
-            where: {
-                UserId: req.params.id
-            },
-            include:[db.Charity]
-        }).then(function(dbUserTrans) {
+            db.Transaction.findAll({
+                where: {
+                    UserId: req.params.id
+                },
+                include: [db.Charity]
+            }).then(function (dbUserTrans) {
 
-            //Grab relevant data for each transaction made
-            console.log(dbUserTrans[0].dataValues);
-            console.log(dbUserTrans[0].dataValues.Charity.title);
+                //Grab relevant data for each transaction made
+                console.log(dbUserTrans[0].dataValues);
+                console.log(dbUserTrans[0].dataValues.Charity.title);
 
-            // Loop through and store each transaction object into the array
-            let transactionArray = [];
-            let transactionObj = {};
-            let userTransactions = dbUserTrans;
-            for (let transaction of userTransactions) {
-                transactionObj.amount = transaction.dataValues.amount,
-                transactionObj.charity = transaction.dataValues.Charity.title
-                transactionArray.push(transactionObj);
-                console.log(transactionObj);
-                transactionObj = {};
-            }
+                // Loop through and store each transaction object into the array
+                let transactionArray = [];
+                let transactionObj = {};
+                let userTransactions = dbUserTrans;
+                for (let transaction of userTransactions) {
+                    transactionObj.amount = ("$ " + thousands_separators(transaction.dataValues.amount)),
+                        transactionObj.charity = transaction.dataValues.Charity.title
+                    transactionArray.push(transactionObj);
+                    console.log(transactionObj);
+                    transactionObj = {};
+                }
 
-            // Assign each array to a part on the renderObject
-            let renderObject = {
-                user: userArray,
-                charities: charityArray,
-                transactions: transactionArray
-            }
-            console.log(renderObject);
-            res.render("account",renderObject);
-        })
+                // Assign each array to a part on the renderObject
+                let renderObject = {
+                    user: userArray,
+                    charities: charityArray,
+                    transactions: transactionArray
+                }
+                console.log(renderObject);
+                res.render("account", renderObject);
+            })
         });
-    })}
+    })
+}

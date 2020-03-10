@@ -112,12 +112,12 @@ module.exports = function (app) {
                     // Creating object of arrays with first name and donation
                     if (!element.dataValues.User.dataValues.first_name) {
                         TransactionObj.don_firstname = "Anonymous"
-                        TransactionObj.donation = element.dataValues.amount;
+                        TransactionObj.donation = thousands_separators(element.dataValues.amount);
                         userTransactions.push(TransactionObj);
                         TransactionObj = {};
                     } else {
                         TransactionObj.don_firstname = element.dataValues.User.dataValues.first_name
-                        TransactionObj.donation = element.dataValues.amount;
+                        TransactionObj.donation = thousands_separators(element.dataValues.amount);
                         userTransactions.push(TransactionObj);
                         TransactionObj = {};
                     }

@@ -48,7 +48,7 @@ module.exports = function (app) {
             // Index through each charity and create objects for each
             userCharities.forEach(charity => {
                 charityObj.charityTitle = charity.dataValues.title;
-                charityObj.charityGoal = ("$ " + thousands_separators(charity.dataValues.goal));
+                charityObj.charityGoal = (thousands_separators(charity.dataValues.goal));
                 charityArray.push(charityObj);
                 charityObj = {};
             })

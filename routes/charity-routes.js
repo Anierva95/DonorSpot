@@ -62,12 +62,7 @@ module.exports = function (app) {
             res.json(dbCharity);
         });
     });
-
-    function thousands_separators(num) {
-        var num_parts = num.toString().split(".");
-        num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        return num_parts.join(".");
-    }
+    
     app.get("/charity/:id", function (req, res) {
         db.Charity.findOne({
             where: {
@@ -94,6 +89,7 @@ module.exports = function (app) {
                 percentTotal += parseInt(elements.dataValues.amount);
 
             })
+
             oldObject.total = thousands_separators(oldObject.total.toFixed(2));
             oldObject.percent = (percentTotal / percentGoal) * 100;
             
@@ -115,7 +111,7 @@ module.exports = function (app) {
                         TransactionObj = {};
                     } else {
                         TransactionObj.don_firstname = element.dataValues.User.dataValues.first_name
-                        TransactionObj.donation = thousands_separators(element.dataValues.amount);
+                        TransactionObj.donation = element.dataValues.amount;
                         userTransactions.push(TransactionObj);
                         TransactionObj = {};
                     }

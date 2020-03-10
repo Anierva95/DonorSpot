@@ -72,13 +72,7 @@
   position: absolute;
 }
 
-@media (min-width: 1130px){
-  .cardsss:hover{
-    -ms-transform: scale(.9); 
-    -webkit-transform: scale(.9); 
-    transform: scale(.9); 
-}
-}
+
 .cardsss{
   position: fixed;
   transition:transform 0.5s;
@@ -91,13 +85,29 @@
   width: 50px;
 }
 
-@media screen and (max-width : 1130px) {
+li {
+  list-style: none;
+}
+
+
+@media (min-width: 1130px){
+  .cardsss:hover{
+    -ms-transform: scale(.9); 
+    -webkit-transform: scale(.9); 
+    transform: scale(.9); 
+  }
+}
+
+
+@media screen and (max-width: 1130px) {
   .btns {
     visibility: hidden;
   }
 }
 
-li {
-  list-style: none;
+@media (max-width: 800px) {
+  .footer {
+    display: none;
+  }
 }
 

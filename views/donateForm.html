@@ -68,48 +68,20 @@
       </div>
     </nav>
     <!-- Navbar ends here -->
+
     <form id="submitDonation">
       <div class="columns">
         <div class="column is-3"></div>
         <div class="column is-6">
+          <h1 id="checkOut">Secure Checkout <i class="fas fa-lock"></i></h1>
+          <i class="creditCard fab fa-cc-visa"></i>
+          <i class="creditCard fab fa-cc-amex"></i>
+          <i class="creditCard fab fa-cc-mastercard"></i>
+          <i class="creditCard fab fa-cc-discover"></i>
           <div class="field">
-            <label class="label">First Name</label>
+            <label class="label">Credit Card Number</label>
             <div class="control has-icons-left has-icons-right">
-              <input
-                id="firstname"
-                class="input"
-                type="firstname"
-                placeholder="First Name"
-              />
-              <span class="icon is-small is-left">
-                <i class="fa fa-signature"></i>
-              </span>
-              <span class="icon is-small is-right">
-                <i class="fa fa-check"></i>
-              </span>
-            </div>
-          </div>
-          <div class="field">
-            <label class="label">Last Name</label>
-            <div class="control has-icons-left has-icons-right">
-              <input
-                id="lastname"
-                class="input"
-                type="lastname"
-                placeholder="Last Name"
-              />
-              <span class="icon is-small is-left">
-                <i class="fa fa-signature"></i>
-              </span>
-              <span class="icon is-small is-right">
-                <i class="fa fa-check"></i>
-              </span>
-            </div>
-          </div>
-          <div class="field">
-            <label class="label">Credit card</label>
-            <div class="control has-icons-left has-icons-right">
-              <input id="cc" class="input" type="firstname" placeholder="Credit Card" />
+              <input id="cc" class="input" placeholder="Credit Card" />
               <span class="icon is-small is-left">
                 <i class="fa fa-credit-card"></i>
               </span>
@@ -117,6 +89,77 @@
                 <i class="fa fa-check"></i>
               </span>
               <box class="box is-right" id=cardtype></box>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Card Holder Name</label>
+            <div class="control has-icons-left has-icons-right">
+              <input
+                id="cardName"
+                class="input"
+                type="cardNmame"
+                placeholder="Name on Credit Card"
+              />
+              <span class="icon is-small is-left">
+                <i class="fa fa-signature"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fa fa-check"></i>
+              </span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Expiry Month</label>
+            <div class="control">
+              <div class="select">
+                <select id="month">
+                  <option>January</option>
+                  <option>February</option>
+                  <option>March</option>
+                  <option>April</option>
+                  <option>May</option>
+                  <option>June</option>
+                  <option>July</option>
+                  <option>August</option>
+                  <option>September</option>
+                  <option>October</option>
+                  <option>November</option>
+                  <option>Demcember</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Expiry Year</label>
+            <div class="control">
+              <div class="select">
+                <select id="year">
+                  <option>2020</option>
+                  <option>2021</option>
+                  <option>2022</option>
+                  <option>2023</option>
+                  <option>2024</option>
+                  <option>2025</option>
+                  <option>2026</option>
+                  <option>2027</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">CVC</label>
+            <div class="control has-icons-left has-icons-right">
+              <input
+                id="cvc"
+                class="input"
+                type="lastname"
+              />
+              <span class="icon is-small is-left">
+                <i class="fa fa-signature"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fa fa-check"></i>
+              </span>
             </div>
           </div>
           <label class="label">Donation (min. $1.00)</label>
@@ -141,7 +184,7 @@
           </div>
           <div class="field is-grouped">
             <div class="control">
-              <button id="submitBtn" class="button is-link">Submit</button>
+              <button id="submitBtn" class="button is-link">Pay Now</button>
             </div>
           </div>
         </div>

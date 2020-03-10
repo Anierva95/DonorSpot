@@ -1,7 +1,7 @@
 <br>
 <br>
 {{#charities}}
-<section class="section charityPage">
+<section class="section charityPage has-background-light">
     <div class="columns">
         <div class="column is-9 main-body">
             <div class="has-text-centered is-size-4">{{ title }}</div>
@@ -15,7 +15,8 @@
                     <div class="card">
                         <div class="card-image">
                             <figure class="image is-4by3">
-                                <img class="charityImage" src="https://source.unsplash.com/collection/1125042/1280x960" alt="Placeholder image"/>
+                                <img class="charityImage" src="https://source.unsplash.com/collection/1125042/1280x960"
+                                    alt="Placeholder image" />
                             </figure>
                         </div>
                     </div>
@@ -87,17 +88,18 @@
 </script>
 
 <style>
-    .main-body {  
+    .main-body {
         font-size: 20px;
     }
 
     .side-body {
         height: 100vh;
     }
-    
+
     .charityImage {
         width: 400px;
     }
+
     .smallDonation {
         display: none;
     }
@@ -106,10 +108,15 @@
         .oneDonation {
             display: none;
         }
+
         .smallDonation {
             display: inline-block;
             margin-bottom: 5px;
             font-size: 20px;
         }
-}
+    }
+
+    .welcome {
+        margin-right: 20px;
+    }
 </style>

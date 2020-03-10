@@ -63,6 +63,12 @@ module.exports = function (app) {
         });
     });
     
+    function thousands_separators(num) {
+        var num_parts = num.toString().split(".");
+        num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return num_parts.join(".");
+    }
+    
     app.get("/charity/:id", function (req, res) {
         db.Charity.findOne({
             where: {

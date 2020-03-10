@@ -100,6 +100,21 @@ li {
   list-style: none;
 }
 
+#cvc {
+  width: 20%;
+}
+
+#checkOut {
+  text-align: center;
+  font-size:  30px;
+  margin-top: 10px;
+}
+
+.creditCard {
+  font-size: 30px;
+  margin-top: 20px;
+}
+
 
 @media (min-width: 1130px){
   .cardsss:hover{
@@ -121,4 +136,6 @@ li {
     display: none;
   }
 }
+
+
 

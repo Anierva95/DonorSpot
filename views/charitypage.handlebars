@@ -48,9 +48,8 @@
             <aside class="menu">
                 {{#each transactions}}
                 <ul class="menu-list">
-                    <nav class="level is-size-5">
+                    <nav class="level is-size-5 oneDonation">
                         <div class="level-left">
-
                             <li>
                                 <p>{{ don_firstname }}</p>
                             </li>
@@ -62,6 +61,8 @@
 
                         </div>
                     </nav>
+                    <p class="smallDonation">{{ don_firstname }}</p>
+                    <p class="smallDonation">${{ donation }}</p>
                 </ul>
                 {{/each}}
             </aside>
@@ -87,7 +88,7 @@
 
 <style>
     .main-body {  
-        font-size: 25px;
+        font-size: 20px;
     }
 
     .side-body {
@@ -97,4 +98,18 @@
     .charityImage {
         width: 400px;
     }
+    .smallDonation {
+        display: none;
+    }
+
+    @media (max-width: 600px) {
+        .oneDonation {
+            display: none;
+        }
+        .smallDonation {
+            display: inline-block;
+            margin-bottom: 5px;
+            font-size: 20px;
+        }
+}
 </style>

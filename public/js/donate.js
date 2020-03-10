@@ -25,7 +25,7 @@ $(document).ready(function () {
         }
         let btnId = localStorage.getItem("charityId");
         var newDonation = {
-            amount: donateAmount.val().trim(),
+            amount: donateAmount.val().trim().split(",").join(""),
             CharityId: btnId,
             UserId: localId
         }

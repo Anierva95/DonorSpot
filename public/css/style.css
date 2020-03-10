@@ -56,6 +56,17 @@
   color: whitesmoke
 }
 
+
+
+.loginpage {
+  height: 120vh;
+  background-color: slategray;
+  color: whitesmoke;
+}
+
+.footer {
+  height: 36vh;
+}
 .steps {
   text-align: center;
   height: 400px;

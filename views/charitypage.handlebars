@@ -3,7 +3,7 @@
 {{#charities}}
 <section class="section charityPage">
     <div class="columns">
-        <div class="column is-9">
+        <div class="column is-9 main-body">
             <div class="has-text-centered is-size-4">{{ title }}</div>
             <p class="has-text-centered is-size-5">
                 Started by {{ first_name }} {{ last_name}}
@@ -15,7 +15,7 @@
                     <div class="card">
                         <div class="card-image">
                             <figure class="image is-4by3">
-                                <img src="https://source.unsplash.com/collection/1125042/1280x960" alt="Placeholder image"/>
+                                <img class="charityImage" src="https://source.unsplash.com/collection/1125042/1280x960" alt="Placeholder image"/>
                             </figure>
                         </div>
                     </div>
@@ -43,8 +43,8 @@
             <progress class="progress is-info" value={{ percent }} max="100">40%</progress>
         </div>
         {{/charities}}
-        <div class="column is-3">
-            <div class="has-text-centered is-size-4">Donation List</div>
+        <div class="column is-3 side-body">
+            <div class="has-text-centered is-size-4">Donation Tracker</div>
             <aside class="menu">
                 {{#each transactions}}
                 <ul class="menu-list">
@@ -86,7 +86,17 @@
 </script>
 
 <style>
-    .welcome {
-        margin-right: 20px;
+    .main-body {
+        background-color: lightgray;
+        height: 100vh;
+        font-size: 25px;
+    }
+    .side-body {
+        background-color: slategray;
+        height: 100vh;
+        color: whitesmoke;
+    }
+    .charityImage {
+        width: 400px;
     }
 </style>

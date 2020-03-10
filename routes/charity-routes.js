@@ -62,12 +62,7 @@ module.exports = function (app) {
             res.json(dbCharity);
         });
     });
-
-    function thousands_separators(num) {
-        var num_parts = num.toString().split(".");
-        num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        return num_parts.join(".");
-    }
+    
     app.get("/charity/:id", function (req, res) {
         db.Charity.findOne({
             where: {
@@ -82,7 +77,7 @@ module.exports = function (app) {
             oldObject.summary = dbCharity.summary;
             oldObject.descript = dbCharity.descript;
             oldObject.total = parseInt(0);
-            oldObject.goal = thousands_separators(parseInt(dbCharity.goal));
+            oldObject.goal = parseInt(dbCharity.goal);
             oldObject.first_name = dbCharity.User.first_name;
             oldObject.last_name = dbCharity.User.last_name;
             let transaction = dbCharity.Transactions;
@@ -90,7 +85,7 @@ module.exports = function (app) {
                 oldObject.total += parseInt(elements.dataValues.amount)
             })
             oldObject.percent = (oldObject.total / oldObject.goal) * 100;
-            oldObject.total = thousands_separators(oldObject.total);
+            oldObject.total = oldObject.total;
             // Second query
             let userTransactions = [];
             let TransactionObj = {};
@@ -109,7 +104,7 @@ module.exports = function (app) {
                         TransactionObj = {};
                     } else {
                         TransactionObj.don_firstname = element.dataValues.User.dataValues.first_name
-                        TransactionObj.donation = thousands_separators(element.dataValues.amount);
+                        TransactionObj.donation = element.dataValues.amount;
                         userTransactions.push(TransactionObj);
                         TransactionObj = {};
                     }
